@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find chapter6)/velocities.launch">
+    <arg name="do_remap" value="$(arg do_remap)" />
+  </include>
+</launch>

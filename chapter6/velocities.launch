@@ -1,0 +1,31 @@
+<launch>
+  <arg
+    name="do_remap"
+    default="false"
+  />
+
+  <remap from="filtered_velocity" to="new_cmd_vel" if="$(arg do_remap)" />
+
+  <node
+    name="velocity_filter"
+    pkg="chapter3"
+    type="vel_filter"
+    output="screen">
+
+  </node>
+  <node
+    name="velocity_publisher"
+    pkg="agitr"
+    type="pubvel"
+    output="screen"
+    launch-prefix="xterm -e">
+  </node>
+  <node
+    name="velocity_printer"
+    pkg="chapter3"
+    type="vel_printer"
+    output="screen"
+    launch-prefix="xterm -e">
+  </node>
+
+</launch>
