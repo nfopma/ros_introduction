@@ -8,10 +8,10 @@
 
   <node
     name="velocity_filter"
-    pkg="chapter3"
+    pkg="chapter7"
     type="vel_filter"
     output="screen">
-
+    <param name="max_vel" value="0.5" />
   </node>
   <node
     name="velocity_publisher"

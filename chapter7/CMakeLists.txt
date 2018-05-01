@@ -1,4 +1,4 @@
-project(chapter3)
+project(chapter7)
 
 find_package(catkin REQUIRED COMPONENTS roscpp geometry_msgs turtlesim)
 
@@ -14,15 +14,6 @@ catkin_package(
 ###########
 
 include_directories( include ${catkin_INCLUDE_DIRS})
-
-add_executable(${PROJECT_NAME}_vel_printer src/vel_printer.cpp)
-
-target_link_libraries(${PROJECT_NAME}_vel_printer ${catkin_LIBRARIES})
-
-# Back to the normal name...
-set_target_properties(${PROJECT_NAME}_vel_printer PROPERTIES OUTPUT_NAME vel_printer PREFIX "")
-
-##### Second node (there must be a better way for this)
 
 add_executable(${PROJECT_NAME}_vel_filter src/vel_filter.cpp)
 
