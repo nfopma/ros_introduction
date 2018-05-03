@@ -17,8 +17,7 @@ public:
     if(!max_ang_vel_loaded)
     {
       ROS_FATAL_STREAM("Maximum Angular Velocity NOT LOADED");
-    } else
-    if(velocity_cmd.angular.z < max_ang_vel)
+    } else if(velocity_cmd.angular.z < max_ang_vel)
     {
       velocity_pub_.publish(velocity_cmd);
     }
