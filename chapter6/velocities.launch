@@ -7,6 +7,12 @@
   <remap from="filtered_velocity" to="new_cmd_vel" if="$(arg do_remap)" />
 
   <node
+    pkg="rosbag"
+    name="record"
+    type="record"
+    args="-O /home/nathan/ros/src/bags/cmd_filtered_velocities.bag /filtered_velocity turtle1/cmd_vel"
+  />
+  <node
     name="velocity_filter"
     pkg="chapter7"
     type="vel_filter"
