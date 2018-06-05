@@ -32,8 +32,9 @@ public:
 
 int main(int argc, char**argv)
 {
-  ros::init(argc, argv, "vel_filter"); //, ros::init_options::AnonymousName);
+  ros::init(argc, argv, "vel_filter");
   ros::NodeHandle nh;
+
   VelocityCmdManipulator filter(nh);
 
   ros::Rate rate(10);

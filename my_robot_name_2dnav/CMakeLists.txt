@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(learning_tf2)
+project(my_robot_name_2dnav)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,11 +8,10 @@ project(learning_tf2)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  tf2
-  tf2_ros
-  turtlesim
+  move_base
+  my_odom_configuration_dep
+  my_sensor_configuration_dep
+  my_tf_configuration_dep
 )
 
 ## System dependencies are found with CMake's conventions
@@ -106,8 +105,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES learning_tf2
-#  CATKIN_DEPENDS roscpp rospy tf2 tf2_ros turtlesim
+#  LIBRARIES my_robot_name_2dnav
+#  CATKIN_DEPENDS move_base my_odom_configuration_dep my_sensor_configuration_dep my_tf_configuration_dep
 #  DEPENDS system_lib
 )
 
@@ -124,7 +123,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/learning_tf2.cpp
+#   src/${PROJECT_NAME}/my_robot_name_2dnav.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -135,24 +134,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-#add_executable(${PROJECT_NAME}_node src/learning_tf2_node.cpp)
-#add_executable(static_turtle_tf2_broadcaster src/static_turtle_tf2_broadcaster.cpp)
-# target_link_libraries(static_turtle_tf2_broadcaster ${catkin_LIBRARIES})
-
-add_executable(static_turtle_tf2_broadcaster src/static_turtle_tf2_broadcaster.cpp)
-add_executable(turtle_tf2_broadcaster src/turtle_tf2_broadcaster.cpp)
-add_executable(turtle_tf2_listener src/turtle_tf2_listener.cpp)
-
-
-target_link_libraries(static_turtle_tf2_broadcaster  ${catkin_LIBRARIES} )
-target_link_libraries(turtle_tf2_broadcaster ${catkin_LIBRARIES} )
-target_link_libraries(turtle_tf2_listener ${catkin_LIBRARIES} )
-
-
-add_executable(frame_tf2_broadcaster src/frame_tf2_broadcaster.cpp)
-target_link_libraries(frame_tf2_broadcaster
- ${catkin_LIBRARIES}
-)
+# add_executable(${PROJECT_NAME}_node src/my_robot_name_2dnav_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -198,18 +180,18 @@ target_link_libraries(frame_tf2_broadcaster
 # )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
-install(FILES
-  start_demo.launch
+# install(FILES
+#   # myfile1
 #   # myfile2
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
+#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+# )
 
 #############
 ## Testing ##
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_learning_tf2.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_my_robot_name_2dnav.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
